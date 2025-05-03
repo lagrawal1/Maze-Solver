@@ -24,7 +24,7 @@ class Line:
 
 
 class Cell:
-    def __init__(self, window):
+    def __init__(self, window=None):
         self.left_wall, self.right_wall, self.bottom_wall, self.top_wall = (
             True,
             True,
@@ -41,9 +41,8 @@ class Cell:
         self.__bottom_right = bottom_right
 
         def Draw_Wall(wall, x1, y1, x2, y2):
-            if wall:
-                line = Line(Point(x1, y1), Point(x2, y2))
-                self._win.draw_line(line)
+            line = Line(Point(x1, y1), Point(x2, y2))
+            self._win.draw_line(line, "black" if wall else "white")
             return
 
         Draw_Wall(
