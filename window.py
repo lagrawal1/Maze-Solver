@@ -5,9 +5,9 @@ from graphics import Point, Line
 
 class Window:
 
-    def __init__(self, width, height):
+    def __init__(self, width, height, title="main"):
         self.__root = Tk()
-        self.__root.title("main")
+        self.__root.title(title)
         self.__canvas = Canvas(self.__root, bg="white", height=height, width=width)
         self.__canvas.pack(fill=BOTH, expand=1)
         self.__running = False

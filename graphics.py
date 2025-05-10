@@ -35,6 +35,7 @@ class Cell:
         self.__top_left = None
         self.__bottom_right = None
         self._win = window
+        self.visited = False
 
     def draw(self, top_left, bottom_right):
         self.__top_left = top_left
@@ -55,9 +56,9 @@ class Cell:
         Draw_Wall(
             self.right_wall,
             self.__bottom_right.x,
-            self.__bottom_right.y,
-            self.__bottom_right.x,
             self.__top_left.y,
+            self.__bottom_right.x,
+            self.__bottom_right.y,
         )
         Draw_Wall(
             self.bottom_wall,
