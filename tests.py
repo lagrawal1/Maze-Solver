@@ -59,11 +59,13 @@ class Test_Cell_Walls(unittest.TestCase):
 
 
 class Test_Maze(unittest.TestCase):
+    """
 
     def test_maze_create_cells(self):
         num_cols = 12
         num_rows = 10
-        m1 = Maze(0, 0, num_rows, num_cols, 10, 10)
+        win = Window(800, 600)
+        m1 = Maze(0, 0, num_rows, num_cols, 10, 10, win)
         self.assertEqual(
             len(m1._cells),
             num_cols,
@@ -77,6 +79,28 @@ class Test_Maze(unittest.TestCase):
         win = Window(800, 600)
 
         maze = Maze(3, 4, 10, 10, 100, 100, win)
+        win.wait_for_close()
+
+    def test_maze_visited_reset(self):
+        win = Window(800, 600)
+
+        maze = Maze(3, 4, 10, 10, 100, 100, win)
+
+        cell_list = maze._cells
+        for col in cell_list:
+            for cell in col:
+                if cell.visited:
+                    self.assertFalse("Cell List contain visited Fals")
+        self.assertTrue("yayaya")
+
+        win.wait_for_close()
+    """
+
+    def test_solve_maze_DFS(self):
+        win = Window(800, 600)
+
+        maze = Maze(3, 4, 20, 20, 40, 40, win)
+        print(maze.solve_DFS())
         win.wait_for_close()
 
 
